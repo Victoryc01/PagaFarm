@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Season Report</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+<h2>Season Report</h2>
+
+
+<table>
+    <thead>
+
+<tr>
+    <th>Plant ID</th>
+    <th>Season</th>
+    <th>Farm</th>
+    <th>Crop</th>
+    <th>Expected Product (tons)</th>
+    <th>Actual Product (tons)</th>
+
+</tr>
+
+    </thead>
+    <tbody>
+
+    <tr th:each="report : ${reportData}">
+        <td th:text="${report.planting.id}"></td>
+        <td th:text="${report.season}"></td>
+        <td th:text="${report.farm}"></td>
+        <td th:text="${report.crop}"></td>
+        <td th:text="${report.expectedProduct}"></td>
+        <td th:text="${report.actualProduct}"></td>
+    </tr>
+
+    </tbody>
+</table>
+
+<h3><a href="/api/planting/form">Go to Planting Form</a></h3>
+<h3><a href="/api/harvesting/form">Go to Harvesting Form</a></h3>
+
+</body>
+</html>

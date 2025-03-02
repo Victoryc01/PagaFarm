@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Farm Data Entry</title>
+</head>
+<body>
+<h2>Enter Planting Data</h2>
+<form th:action="@{/api/planting/save}" method="post">
+  <label>Farm:</label>
+  <select name="farmId">
+    <option th:each="farm : ${farms}" th:value="${farm.id}" th:text="${farm.name}"></option>
+  </select><br>
+
+  <label>Crop:</label>
+  <select name="cropId">
+    <option th:each="crop : ${crops}" th:value="${crop.id}" th:text="${crop.name}"></option>
+  </select><br>
+
+  <label>Season:</label>
+  <select name="seasonId">
+    <option th:each="season : ${seasons}" th:value="${season.id}" th:text="${season.name}"></option>
+  </select><br>
+
+  <label>Area (acres):</label>
+  <input type="number" name="areaInAcres" step="1" required><br>
+
+  <label>Expected Product (tons):</label>
+  <input type="number" name="expectedProduct" step="1" required><br>
+
+  <button type="submit">Save Planting Data</button>
+</form>
+
+<h3><a href="/api/reports">Go to report</a></h3>
+<h3><a href="/api/harvesting/form">Go to harvesting form</a></h3>
+</body>
+</html>
