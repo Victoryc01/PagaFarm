@@ -1,5 +1,7 @@
 package com.farmcollector.exceptions;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,9 +16,5 @@ public class GlobalExceptionHandler {
         return "error-page"; // Redirects to a custom error page
     }
 
-    @ExceptionHandler(NoHandlerFoundException.class)
-    public String handleNotFound(NoHandlerFoundException ex, Model model) {
-        model.addAttribute("errorMessage", "Page not found!");
-        return "error-page"; // Redirects to a 404 page
-    }
+
 }

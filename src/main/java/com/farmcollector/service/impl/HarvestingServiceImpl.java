@@ -28,7 +28,7 @@ public class HarvestingServiceImpl implements HarvestingService {
     private final ReportRepository reportRepository;
 
 
-    //Saves the farmers harvesting data
+    //Saves the farmers harvesting deta
     public Harvesting saveHarvesting(HarvestRequestDTO requestDTO, Long plantingId) {
         Harvesting harvesting = new Harvesting();
         harvesting.setActualProduct(requestDTO.actualProduct());
